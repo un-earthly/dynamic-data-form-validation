@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./form-bg.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Html Form | Dynamic Data</title>
+</head>
+
+<body>
+
+  <div id="loader" class="hero fixed min-h-screen z-50 bg-[#b8ffea]">
+    <div class="flex items-center justify-center space-x-2">
+      <div>
+        <div class="w-16 h-16 shadow shadow-teal-400 border-solid rounded-full animate-spin">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="app"
+    class="bg-[#131212] min-h-screen flex items-center justify-around lg:flex-row flex-col-reverse space-y-4 p-10 relative">
+    <nav
+      class="absolute bg-gray-900 rounded-full text-white flex items-center justify-center lg:w-1/3 w-1/2 p-3 space-x-4 top-0">
+      <span><a href="#" id="renderForm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+            <path fill-rule="evenodd"
+              d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+          </svg></a>
+      </span>
+      <span>
+        <a id="renderTable" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="bi bi-table" viewBox="0 0 16 16">
+            <path
+              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+          </svg></a>
+
+      </span>
+    </nav>
+    <div id="form" class="flex  lg:flex-row flex-col-reverse space-y-4 space-x-4">
+
+      <div>
+        <img src="./form-bg.png" class="w-3/4 mx-auto" alt="">
+      </div>
+      <form class="h-full w-full flex items-center justify-center flex-col space-y-2 text-gray-400/70">
+        <div data-source class="relative">
+          <input name="source" type="text" id="source"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none duration-150 focus:ring-0 peer"
+            placeholder=" " />
+          <label for="source"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Select
+            Your Source</label>
+        </div>
+        <div data-pipeline class="relative ">
+          <input name="pipeline" type="text" id="pipeline"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="pipeline"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Provide
+            a name for pipeline</label>
+        </div>
+        <div data-projectName class="relative ">
+          <input name="projectName" type="text" id="projectName"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="projectName"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">GCS
+            project name</label>
+        </div>
+        <div data-bucketName class="relative ">
+          <input name="bucketName" type="text" id="bucketName"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="bucketName"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">GCS
+            bucket name</label>
+        </div>
+        <div data-files class="relative ">
+          <input name="files" type="text" id="files"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="files"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Input
+            Cloud Storage File(s)</label>
+        </div>
+        <div data-credentials class="relative ">
+          <input name="credentials" type="text" id="credentials"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="credentials"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">GCS
+            credentials</label>
+        </div>
+        <div data-runIn class="relative ">
+          <input name="runIn" type="text" id="runIn"
+            class="block px-5 pb-2.5 pt-5 w-full text-md bg-gray-700/20 appearance-none focus:outline-none  focus:ring-0 peer"
+            placeholder=" " />
+          <label for="runIn"
+            class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Run
+            Every</label>
+        </div>
+        <div class="lg:w-1/3 flex justify-center">
+          <button type="submit" class="lg:w-1/2 w-full btn bg-gray-900 lg:p-3 px-5 py-3 mr-2">Create</button>
+          <button type="reset" class="lg:w-1/2 w-full btn bg-gray-800 lg:p-3 px-5 py-3 ml-2">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="overflow-x-auto" id="tparent">
+      <table id="table" class="table">
+      </table>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </div>
+
+</body>
+
+</html>

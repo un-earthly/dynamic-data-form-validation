@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@media (min-width:1024px) {
+  form div {
+    width: 50%;
+  }
+}
