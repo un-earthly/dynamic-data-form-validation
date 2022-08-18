@@ -8,13 +8,13 @@ window.addEventListener("load", e => {
 const checkSpecialChar = str => !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(str) ? { success: str } : { err: { msg: "Found Special Char" } }
 document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault();
-  const source = e.target.source.value.length > 5 ? checkSpecialChar(e.target.source.value) : { err: { msg: "Length Is less than 5" } }
-  const pipeline = e.target.pipeline.value.length > 5 ? checkSpecialChar(e.target.pipeline.value) : { err: { msg: "Length Is less than 5" } }
-  const projectName = e.target.projectName.value.length > 5 ? checkSpecialChar(e.target.projectName.value) : { err: { msg: "Length Is less than 5" } }
-  const bucketName = e.target.bucketName.value.length > 5 ? checkSpecialChar(e.target.bucketName.value) : { err: { msg: "Length Is less than 5" } }
-  const files = e.target.files.value.length > 5 ? checkSpecialChar(e.target.files.value) : { err: { msg: "Length Is less than 5" } }
-  const credentials = e.target.credentials.value.length > 5 ? checkSpecialChar(e.target.credentials.value) : { err: { msg: "Length Is less than 5" } }
-  const runIn = e.target.runIn.value.length > 5 ? checkSpecialChar(e.target.runIn.value) : { err: { msg: "Length Is less than 5" } }
+  const source = e.target.source.value.length < 5 ? checkSpecialChar(e.target.source.value) : { err: { msg: "Length Is less than 5" } }
+  const pipeline = e.target.pipeline.value.length < 5 ? checkSpecialChar(e.target.pipeline.value) : { err: { msg: "Length Is less than 5" } }
+  const projectName = e.target.projectName.value.length < 5 ? checkSpecialChar(e.target.projectName.value) : { err: { msg: "Length Is less than 5" } }
+  const bucketName = e.target.bucketName.value.length < 5 ? checkSpecialChar(e.target.bucketName.value) : { err: { msg: "Length Is less than 5" } }
+  const files = e.target.files.value.length < 5 ? checkSpecialChar(e.target.files.value) : { err: { msg: "Length Is less than 5" } }
+  const credentials = e.target.credentials.value.length < 5 ? checkSpecialChar(e.target.credentials.value) : { err: { msg: "Length Is less than 5" } }
+  const runIn = e.target.runIn.value.length < 5 ? checkSpecialChar(e.target.runIn.value) : { err: { msg: "Length Is less than 5" } }
 
 
   const errors = {
